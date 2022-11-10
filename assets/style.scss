@@ -1,0 +1,853 @@
+$bgColor: black;
+$accentColor: #f1b500;
+$textShadow: 0 1px 5px $bgColor;
+
+* {
+  outline: none !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: justify;
+}
+
+h1,
+h2 {
+  font-weight: 100;
+}
+
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bgColor;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background: $accentColor;
+}
+
+:root {
+  font-family: "Heebo", sans-serif !important;
+  font-size: 16px;
+}
+
+body {
+  // background-color: #eeeef1;
+  background-color: $bgColor;
+}
+
+@keyframes openChat {
+  from {
+    transform: scale(0);
+    transform-origin: right bottom;
+  }
+
+  to {
+    transform: scale(1);
+    transform-origin: right bottom;
+  }
+}
+
+@keyframes closeChat {
+  from {
+    transform: scale(1);
+    transform-origin: right bottom;
+  }
+
+  to {
+    transform: scale(0);
+    transform-origin: right bottom;
+  }
+}
+
+main {
+  #discord-widget {
+    display: none !important;
+  }
+
+  .discord {
+    width: 18rem;
+    margin: 1rem;
+    text-align: right;
+    z-index: 9999;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    transition: .3s;
+    animation-name: discord;
+    animation-duration: 1s;
+    transform-style: preserve-3d;
+
+    iframe {
+      transform: scale(0);
+    }
+
+    img {
+      width: 9rem !important;
+    }
+
+    img:hover {
+      transition: .3s;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    @keyframes discord {
+      from {
+        transform: scale(0);
+        display: none;
+      }
+
+      to {
+        transform: scale(1);
+        display: block;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.selected {
+  color: $accentColor !important;
+}
+
+.image-borderless-2 {
+  width: 100%;
+  height: 100%;
+  background: url(https://res.cloudinary.com/sapiangroup/image/upload/q_auto,f_auto/v1598203654/OZEETY_IMAGES/assets/img/ozeety_flashgroup-cryptostations.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  animation-name: blur-image;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blur-image {
+  0% {
+    box-shadow: 25px 25px 50px 25px $bgColor inset,
+      -25px -25px 50px 25px $bgColor inset;
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 100px 25px 50px 50px $bgColor inset,
+      -100px -25px 50px 50px $bgColor inset;
+    transform: scale(1.1);
+  }
+
+  100% {
+    box-shadow: 25px 25px 50px 25px $bgColor inset,
+      -25px -25px 50px 25px $bgColor inset;
+    transform: scale(1);
+  }
+}
+
+button {
+  background: $accentColor;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+.a-btn {
+  color: $accentColor;
+  transition: 0.3s;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $accentColor;
+    padding: 0 1.2rem;
+    border-radius: 50px;
+    color: white;
+    transition: 0.3s;
+  }
+}
+
+.pink-hover {
+  &:hover {
+    text-decoration: none;
+    padding: 0 1.2rem;
+    border-radius: 50px;
+    color: white;
+    background-color: #9013fe;
+    transition: 0.3s;
+  }
+}
+
+.blue-hover {
+  &:hover {
+    text-decoration: none;
+    padding: 0 1.2rem;
+    border-radius: 50px;
+    color: white;
+    background-color: rgb(43, 188, 255);
+    transition: 0.3s;
+  }
+}
+
+.oz-btn {
+  button {
+    padding: 1rem 3.5rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: 500;
+    border: none;
+    transition: 0.3s;
+  }
+}
+
+nav {
+  z-index: 999;
+
+  .navbar-toggler {
+    &:focus {
+      transition: 0.3s;
+      transform: scale(1.1);
+      outline: none !important;
+    }
+  }
+
+  .nav-link {
+    color: white;
+    transition: 0.3s;
+
+    &:hover {
+      color: $accentColor;
+      transform: scale(1.1);
+      transition: 0.3s;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        border-radius: 25px;
+        background: #ffbf00;
+        animation-name: a-hover;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in-out;
+      }
+    }
+  }
+
+  @keyframes a-hover {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+}
+
+.first-sec {
+  background: url(https://res.cloudinary.com/sapiangroup/image/upload/w_auto,f_auto,q_auto/v1598203426/OZEETY_IMAGES/assets/img/bloc3-bg_flashgroup-cryptostations.png) no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  .lily {
+    animation-name: flip;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes flip {
+    0% {
+      transform: rotateY(0);
+    }
+
+    50% {
+      transform: rotateY(180deg);
+    }
+
+    100% {
+      transform: rotateY(0);
+    }
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50px;
+    margin: 5px;
+    background-color: $accentColor;
+    position: absolute;
+    box-shadow: 0 0 2px $accentColor;
+    opacity: 0;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    50% {
+      opacity: 0.5;
+      width: 5px;
+      height: 5px;
+    }
+
+    100% {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .intro {
+    position: relative;
+  }
+
+  .ozeety-image {
+    height: 50vh;
+
+    h1 {
+      font-size: 3rem;
+      color: $accentColor;
+      font-weight: 200;
+    }
+  }
+}
+
+.learn-more {
+  &:hover {
+    transition: 0.3s;
+    box-shadow: 0 0 15px $accentColor;
+  }
+}
+
+.coin {
+  backface-visibility: hidden;
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.o-word {
+  font-size: 28px;
+  color: $accentColor;
+  font-weight: 600;
+}
+
+.accentText {
+  color: $accentColor;
+  font-weight: 600;
+}
+
+.corewallet {
+  background: url(https://res.cloudinary.com/sapiangroup/image/upload/v1602066481/OZEETY_IMAGES/assets/img/masternode-2-flashgroup-cryptostations.jpg) no-repeat;
+  padding: 5rem 5rem;
+  border-radius: 5px;
+  background-size: cover;
+
+  p {
+    padding: 3rem;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+}
+
+#green-gold {
+  height: 100%;
+  background-color: #1a1a1a;
+}
+
+.second-sec {
+  .station {
+    width: 20%;
+    transition: 0.3s;
+    backface-visibility: hidden;
+    -ms-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+
+    &:hover {
+      transition: 0.3s;
+      transform: scale(2.4);
+    }
+  }
+
+  .oztg-parent {
+    position: relative;
+
+    #oztg-coin {
+      img {
+        backface-visibility: hidden;
+        -ms-transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+
+  .solutions-list {
+    font-size: 0.8rem;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin-top: 1rem;
+      margin-left: 0;
+    }
+
+    span {
+      padding: 0.2rem;
+    }
+
+    button {
+      background: none;
+      color: $accentColor;
+      padding: 0.2rem;
+      transition: 0.3s;
+
+      &:hover {
+        text-decoration: none;
+        transition: 0.3s;
+        border-radius: 50px;
+        padding: 0.2rem 1rem;
+        background-color: $accentColor;
+        color: white;
+      }
+    }
+  }
+
+  .solutions {
+    img {
+      width: 75%;
+    }
+  }
+
+  .read-more {
+    border-radius: 0;
+    background-color: rgba($color: $accentColor, $alpha: 0.1);
+  }
+}
+
+.related-pages {
+  .page-list {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  .page {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 320px;
+    width: 320px;
+    min-width: 250px;
+    padding: 1.5rem;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    box-shadow: -15px 0 24px rgba($color: #111111, $alpha: 0.8);
+    transition: 0.3s;
+  }
+
+  .page:hover {
+    transition: 0.3s;
+    transform: translateY(-1rem);
+  }
+
+  .page:hover~.page {
+    transform: translateX(130px);
+  }
+
+  .page:not(:first-child) {
+    margin-left: -130px;
+  }
+
+  .page-header {
+    height: 50px;
+    margin-bottom: 10px;
+
+    h5 {
+      font-weight: 100 !important;
+    }
+  }
+
+  .page-image {
+    img {
+      object-fit: cover;
+      height: 200px;
+    }
+  }
+}
+
+#count {
+  &::after {
+    content: "Million";
+    font-size: 24px;
+    vertical-align: baseline;
+  }
+}
+
+.related-pages-small {
+  padding: 0.5rem;
+
+  .page-small {
+    padding: 1rem;
+    height: 200px;
+
+    border-radius: 4px;
+    background-color: $bgColor;
+    box-shadow: 0 0 24px rgba($color: #111111, $alpha: 0.8);
+  }
+
+  .page-header {
+    margin-bottom: 10px;
+  }
+
+  .page-image {
+    img {
+      object-fit: cover;
+      height: 120px;
+    }
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes read-more {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+
+  to {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+@keyframes read-less {
+  from {
+    opacity: 1;
+    height: 100%;
+  }
+
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.m-top {
+  margin-top: 8rem !important;
+}
+
+.m-bottom {
+  margin-bottom: 8rem !important;
+}
+
+.simpleParallax {
+  padding: 5rem;
+}
+
+.sec-3 {
+  background: url(https://res.cloudinary.com/sapiangroup/image/upload/w_auto,f_auto,q_auto/v1598203426/OZEETY_IMAGES/assets/img/bloc3-bg_flashgroup-cryptostations.png) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.sec-5 {
+  background: url(https://res.cloudinary.com/sapiangroup/image/upload/w_auto,f_auto,q_auto/v1598203426/OZEETY_IMAGES/assets/img/bloc3-bg_flashgroup-cryptostations.png) no-repeat;
+  background-size: cover;
+}
+
+.sec-7 {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(225deg, rgba(0, 0, 0, 1) 0%, rgba(35, 0, 52, 1) 53%, rgba(64, 0, 95, 1) 79%, rgba(120, 0, 180, 1) 100%, rgba(180, 45, 247, 1) 100%);
+}
+
+// archive page
+
+.buy {
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  background-color: $accentColor;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.archive-sec-2 {
+  background: url(https://res.cloudinary.com/sapiangroup/image/upload/w_auto,f_auto,q_auto/v1598203426/OZEETY_IMAGES/assets/img/bloc3-bg_flashgroup-cryptostations.png) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.download-page {
+  h2 {
+    font-weight: 100;
+  }
+
+  .download {
+    width: 50%;
+    padding: 1rem;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: rgb(78, 78, 78);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+  }
+
+  .download-img {
+    height: 50px;
+  }
+
+  img {
+    width: 45px;
+  }
+
+  a {
+    display: inline;
+    color: $accentColor;
+    transition: 0.3s;
+
+    &:hover {
+      text-decoration: none;
+      color: $bgColor;
+      padding: 0 0.5rem;
+      border-radius: 50px;
+      background-color: $accentColor;
+      transition: 0.3s;
+    }
+  }
+}
+
+#reward-system {
+  .divider {
+    border: none;
+    border-bottom: 1px solid #000000;
+    box-shadow: 0 20px 20px -20px $bgColor;
+  }
+
+  .reward-number {
+    font-size: 100px;
+    font-weight: bold;
+    color: $bgColor;
+    -webkit-text-stroke: 1px $accentColor;
+    transition: 0.3s;
+  }
+
+  .reward-number:hover {
+    cursor: pointer;
+    color: $accentColor;
+    transition: 0.3s;
+  }
+}
+
+.up-down {
+  animation-name: up-down;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  position: absolute;
+}
+
+.glow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  width: 1px;
+  height: 1px;
+  animation-name: glow;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  border-radius: 50%;
+}
+
+.large-text {
+  font-size: 2rem;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 15px 50px rgba($color: rgb(0, 162, 255), $alpha: 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 175px 75px rgba($color: rgb(0, 162, 255), $alpha: 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 15px 50px rgba($color: rgb(0, 162, 255), $alpha: 0.2);
+  }
+}
+
+@keyframes up-down {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: -10%;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+// specs page
+
+.spec-bg {
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpath fill='%23070707' d='M486 705.8c-109.3-21.8-223.4-32.2-335.3-19.4C99.5 692.1 49 703 0 719.8V800h843.8c-115.9-33.2-230.8-68.1-347.6-92.2C492.8 707.1 489.4 706.5 486 705.8z'/%3E%3Cpath fill='%230d0d0d' d='M1600 0H0v719.8c49-16.8 99.5-27.8 150.7-33.5c111.9-12.7 226-2.4 335.3 19.4c3.4 0.7 6.8 1.4 10.2 2c116.8 24 231.7 59 347.6 92.2H1600V0z'/%3E%3Cpath fill='%23121212' d='M478.4 581c3.2 0.8 6.4 1.7 9.5 2.5c196.2 52.5 388.7 133.5 593.5 176.6c174.2 36.6 349.5 29.2 518.6-10.2V0H0v574.9c52.3-17.6 106.5-27.7 161.1-30.9C268.4 537.4 375.7 554.2 478.4 581z'/%3E%3Cpath fill='%23161616' d='M0 0v429.4c55.6-18.4 113.5-27.3 171.4-27.7c102.8-0.8 203.2 22.7 299.3 54.5c3 1 5.9 2 8.9 3c183.6 62 365.7 146.1 562.4 192.1c186.7 43.7 376.3 34.4 557.9-12.6V0H0z'/%3E%3Cpath fill='%231a1a1a' d='M181.8 259.4c98.2 6 191.9 35.2 281.3 72.1c2.8 1.1 5.5 2.3 8.3 3.4c171 71.6 342.7 158.5 531.3 207.7c198.8 51.8 403.4 40.8 597.3-14.8V0H0v283.2C59 263.6 120.6 255.7 181.8 259.4z'/%3E%3Cpath fill='%23161616' d='M1600 0H0v136.3c62.3-20.9 127.7-27.5 192.2-19.2c93.6 12.1 180.5 47.7 263.3 89.6c2.6 1.3 5.1 2.6 7.7 3.9c158.4 81.1 319.7 170.9 500.3 223.2c210.5 61 430.8 49 636.6-16.6V0z'/%3E%3Cpath fill='%23121212' d='M454.9 86.3C600.7 177 751.6 269.3 924.1 325c208.6 67.4 431.3 60.8 637.9-5.3c12.8-4.1 25.4-8.4 38.1-12.9V0H288.1c56 21.3 108.7 50.6 159.7 82C450.2 83.4 452.5 84.9 454.9 86.3z'/%3E%3Cpath fill='%230d0d0d' d='M1600 0H498c118.1 85.8 243.5 164.5 386.8 216.2c191.8 69.2 400 74.7 595 21.1c40.8-11.2 81.1-25.2 120.3-41.7V0z'/%3E%3Cpath fill='%23070707' d='M1397.5 154.8c47.2-10.6 93.6-25.3 138.6-43.8c21.7-8.9 43-18.8 63.9-29.5V0H643.4c62.9 41.7 129.7 78.2 202.1 107.4C1020.4 178.1 1214.2 196.1 1397.5 154.8z'/%3E%3Cpath fill='%23000000' d='M1315.3 72.4c75.3-12.6 148.9-37.1 216.8-72.4h-723C966.8 71 1144.7 101 1315.3 72.4z'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.vl {
+  border-left: 3px solid #f1b500;
+  height: 400px;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+
+.spec-title {
+  margin-bottom: 50px;
+  margin-top: 40px;
+  color: #f1b500;
+  font-weight: 200;
+}
+
+.spec-p {
+  margin-bottom: 50px;
+}
+
+.spec-div {
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.g-word {
+  color: #f1b500;
+}
+
+.spec-div p {
+  margin-bottom: 0px;
+}
+
+.spec-div h4 {
+  color: #f1b500;
+}
+
+table tr td,
+table thead th {
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table thead th {
+  vertical-align: middle;
+  color: $bgColor;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 0.95rem 1rem;
+  transition: 0.3s;
+
+  &:hover {
+    transition: 0.3s;
+    color: $accentColor;
+    cursor: pointer;
+  }
+}
+
+.tcd {
+  display: none;
+  margin-bottom: 1.8rem;
+
+  div {
+    border-radius: 2px;
+    padding: 1rem 0.3rem;
+    background-color: rgb(48, 48, 48);
+    transition: .3s;
+
+    &:hover {
+      transition: .3s;
+      cursor: pointer;
+      transform: scale(1.2);
+      background-color: rgb(0, 0, 0);
+    }
+  }
+}
+
+.flashxchanger {
+  color: #9013FE;
+}
+
+.table td,
+.table th {
+  vertical-align: top;
+  border-top: none;
+  border-right: 2px solid rgba($color: #6e6e6d, $alpha: 0.3);
+}
+
+.dtr {
+  background-color: black;
+}
+
+.table thead th {
+  border-bottom: none;
+  background-color: $accentColor;
+}
+
+.hscroll {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.footer {
+  background-color: black;
+
+  ul {
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+}
